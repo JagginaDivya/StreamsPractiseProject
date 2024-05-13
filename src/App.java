@@ -64,7 +64,7 @@ public class App {
     //TODO 7.Print list of all employee with min salary.
         employeeList.stream().filter(employee -> employee.getSalary()==minSal.getAsInt()).forEach(employee -> System.out.println ("  "+ employee.getFirstName() +" min salary = "+ employee.getSalary()));
 
-    //TODO 8. Print List of people working on more than 2 projects.
+    //TODO 8. Print  List of people working on more than 2 projects.
      employeeList.stream().filter(employee -> employee.getProjects().size()>2).forEach(people -> System.out.println(people.getFirstName()));
 
     }
