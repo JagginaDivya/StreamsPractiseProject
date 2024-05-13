@@ -67,5 +67,12 @@ public class App {
     //TODO 8. Print  List of people working on more than 2 projects.
      employeeList.stream().filter(employee -> employee.getProjects().size()>2).forEach(people -> System.out.println(people.getFirstName()));
 
+     //TODO 9.Count of total laptops assigned to the employees.
+        int countTotalLaptopsAssignedToEmployees = (int) employeeList.stream().map(Employee::getTotalLaptopsAssigned).count();
+        System.out.println("Count Total Laptops : "+countTotalLaptopsAssignedToEmployees);
+
+     //TODO 10 Count of all projects with Robert Downey Jr as PM.
+        long robertDowneyJRASPM = employees.stream().flatMap(employee -> employee.getProjects().stream()).filter(project -> project.getProjectManager().equalsIgnoreCase("Robert Downey Jr")).count();
+        System.out.println("Count of all projects with Robert Downey Jr as PM." + robertDowneyJRASPM);
     }
 }
