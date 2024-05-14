@@ -74,5 +74,22 @@ public class App {
      //TODO 10 Count of all projects with Robert Downey Jr as PM.
         long robertDowneyJRASPM = employees.stream().flatMap(employee -> employee.getProjects().stream()).filter(project -> project.getProjectManager().equalsIgnoreCase("Robert Downey Jr")).count();
         System.out.println("Count of all projects with Robert Downey Jr as PM." + robertDowneyJRASPM);
+
+     //TODO 13. Create a map based on this data, they key should be the year of joining,
+        // and value should be list of all the employees who joined the particular year.
+    Map<String,List<Employee>> mp = employees.stream().collect(Collectors.groupingBy(employee -> employee.getId().substring(0,4)));
+
+
+    //TODO 14.Create a map based on this data, the key should be year of joining and value should be the count of people joined in that particular year.
+
+        Map<String,List<Employee>> map = employees.stream().collect(Collectors.groupingBy(employee -> employee.getId().substring(0,4)));
+        map.forEach((year,employee)->{
+                    System.out.println("year "+year+" : "+employee.size());
+                }
+        );
+
+
+
+
     }
 }
